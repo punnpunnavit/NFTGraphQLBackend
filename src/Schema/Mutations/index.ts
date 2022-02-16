@@ -1,2 +1,2 @@
-import {UserType} from '../Types/Users';
+import {UserType} from '../Types/UserType';
 

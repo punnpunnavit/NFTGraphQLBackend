@@ -1,2 +1,2 @@
-import user = require("./Users");
-export {user};
+import User = require("./Users");
+export {User};
