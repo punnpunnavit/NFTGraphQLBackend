@@ -3,22 +3,25 @@ import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
 import dotenv from 'dotenv';
 import {connectDB} from './DB';
-
-const main = async () => {
-  dotenv.config();
-  connectDB();
+import schema from "./Schema";
 
 
-  const app = express();
-  app.use(cors());
-  app.use(express.json());
- 
+dotenv.config();
+connectDB();
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-  app.listen(process.env.PORT, () => {
-    console.log(`SERVER RUNNING ON PORT ${process.env.PORT}`);
-  });
-};
+app.get("/",(req,res)=>{
+res.json("Welcome")
+})
 
-main().catch((err) => {
-  console.log(err);
+app.use("/graphql",graphqlHTTP({
+  schema:schema,
+  graphiql:true
+}))
+
+app.listen(process.env.PORT, () => {
+  console.log(`SERVER RUNNING ON PORT ${process.env.PORT}`);
 });
+
