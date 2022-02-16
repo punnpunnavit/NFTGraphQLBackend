@@ -1,5 +1,4 @@
 import { GraphQLObjectType, GraphQLID, GraphQLString } from "graphql"
-import {User} from '../../Models'
 
 // id firstname lastname email username password
 export const UserType = new GraphQLObjectType({
@@ -15,6 +14,3 @@ export const UserType = new GraphQLObjectType({
   }),
 });
 
-
-
-module.exports = UserType;
